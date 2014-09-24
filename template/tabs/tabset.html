@@ -1,7 +1,7 @@
 <div class="tabbable">
-  <dl class="tabs" ng-class="{'vertical': vertical}" ng-transclude></dl>
+  <dl class="tabs" role="tablist" ng-class="{'vertical': vertical}" ng-transclude></dl>
   <div class="tabs-content" ng-class="{'vertical': vertical}">
-    <div class="content" 
+    <div class="content" role="tabpanel" aria-hidden="{{!tab.active}}" 
       ng-repeat="tab in tabs" 
       ng-class="{active: tab.active}">
       <div tab-content-transclude="tab"></div>
