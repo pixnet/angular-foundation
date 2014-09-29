@@ -183,3 +183,4 @@ Well done! (If you don't like repeating yourself open a PR with a grunt task tak
 ## Credits
 
 Again, many thanks to the AngularUI team for the angular-bootstrap project.
+
