@@ -346,7 +346,8 @@ module.exports = function(grunt) {
   grunt.registerTask('dev', '開發中，檔案搬運工', function () {
     grunt.task.run(['build']);
     var shell = require('shelljs');
-    shell.cp('-f', grunt.config('uglify.dist_tpls.dest'), '../pixpanel2/webroot/components/angular-foundation/');
+    shell.cp('-f', grunt.config('concat.dist_tpls.dest'), '../pixpanel2/webroot/components/angular-foundation/mm-foundation-tpls.src.js');
+    shell.cp('-f', grunt.config('uglify.dist_tpls.dest'), '../pixpanel2/webroot/components/angular-foundation/mm-foundation-tpls.min.js');
   });
 
   grunt.registerTask('test', 'Run tests on singleRun karma server', function () {
