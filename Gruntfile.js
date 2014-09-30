@@ -35,12 +35,12 @@ module.exports = function(grunt) {
       },
       html: {
         files: ['template/**/*.html'],
-        tasks: ['html2js', 'karma:watch:run']
+        tasks: ['html2js', 'karma:watch:run', 'dev']
       },
       js: {
         files: ['src/**/*.js'],
         //we don't need to jshint here, it slows down everything else
-        tasks: ['karma:watch:run']
+        tasks: ['karma:watch:run', 'dev']
       }
     },
     concat: {
@@ -341,6 +341,12 @@ module.exports = function(grunt) {
                  .concat(srcFiles).concat(tpljsFiles));
 
     grunt.task.run(['concat', 'uglify']);
+  });
+
+  grunt.registerTask('dev', '開發中，檔案搬運工', function () {
+    grunt.task.run(['build']);
+    var shell = require('shelljs');
+    shell.cp('-f', grunt.config('uglify.dist_tpls.dest'), '../pixpanel2/webroot/components/angular-foundation/');
   });
 
   grunt.registerTask('test', 'Run tests on singleRun karma server', function () {
