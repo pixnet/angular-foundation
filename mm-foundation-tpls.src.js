@@ -2,7 +2,7 @@
  * angular-mm-foundation
  * http://pineconellc.github.io/angular-foundation/
 
- * Version: 0.6.0-SNAPSHOT - 2014-11-24
+ * Version: 0.6.0-SNAPSHOT - 2015-03-25
  * License: MIT
  * (c) Pinecone, LLC
  */
@@ -3393,10 +3393,10 @@ angular.module("template/modal/backdrop.html", []).run(["$templateCache", functi
 
 angular.module("template/modal/window.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("template/modal/window.html",
-    "<div tabindex=\"-1\" class=\"reveal-modal fade {{ windowClass }}\"\n" +
+    "<dialog tabindex=\"-1\" class=\"reveal-modal fade {{ windowClass }}\"\n" +
     "  ng-class=\"{in: animate}\" style=\"display: block; visibility: visible\">\n" +
     "  <div ng-transclude></div>\n" +
-    "</div>\n" +
+    "</dialog>\n" +
     "");
 }]);
 
