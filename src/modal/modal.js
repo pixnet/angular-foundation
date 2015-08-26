@@ -106,7 +106,7 @@ angular.module('mm.foundation.modal', ['mm.foundation.transition'])
           }
           else{
           // otherwise focus the freshly-opened modal
-            element[0].querySelector('div').focus();
+            element[0].focus();
           }
         });
       }
@@ -235,15 +235,19 @@ angular.module('mm.foundation.modal', ['mm.foundation.transition'])
         // distance to top
         var faux = angular.element('<div class="reveal-modal" style="z-index:-1""></div>');
         body.append(faux[0]);
-        var marginTop = parseInt(getComputedStyle(faux[0]).top);
+        var marginTop = parseInt(getComputedStyle(faux[0]).top) || 0;
         faux.remove();
 
-        var openAt = $window.scrollY + marginTop;
+        // Using pageYOffset instead of scrollY to ensure compatibility with IE
+        var scrollY = $window.pageYOffset || 0;
+        var openAt = scrollY + marginTop;
 
-        var angularDomEl = angular.element('<div modal-window style="visibility: visible; top:' + openAt +'px;"></div>');
-        angularDomEl.attr('window-class', modal.windowClass);
-        angularDomEl.attr('index', openedWindows.length() - 1);
-        angularDomEl.attr('animate', 'animate');
+        var angularDomEl = angular.element('<div modal-window style="visibility: visible; top:' + openAt +'px;"></div>')
+          .attr({
+            'window-class': modal.windowClass,
+            'index': openedWindows.length() - 1,
+            'animate': 'animate'
+          });
         angularDomEl.html(modal.content);
 
         var modalDomEl = $compile(angularDomEl)(modal.scope);
@@ -360,6 +364,9 @@ angular.module('mm.foundation.modal', ['mm.foundation.transition'])
                 });
 
                 ctrlInstance = $controller(modalOptions.controller, ctrlLocals);
+                if (modalOptions.controllerAs) {
+                  modalScope[modalOptions.controllerAs] = ctrlInstance;
+                }
               }
 
               $modalStack.open(modalInstance, {
