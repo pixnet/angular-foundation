@@ -7,6 +7,7 @@ This project is a port of the AngularUI team's excellent [angular-bootstrap](htt
 
 ## PIXNET 自行修改部分
 - modal/window.html 的 <div> tagName 修改為 <dialog> (0.6.0-pixnet)
+- 詳細步驟 in 票 41543
 
 ## Demo
 

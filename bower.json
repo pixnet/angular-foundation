@@ -8,11 +8,8 @@
   "license": "MIT",
   "private": true,
   "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+    "**/*",
+    "!mm-foundation-tpls.*.js"
   ],
   "dependencies": {
     "angular": "=1.3.3",
