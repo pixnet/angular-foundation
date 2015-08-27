@@ -5,6 +5,9 @@
 
 This project is a port of the AngularUI team's excellent [angular-bootstrap](https://github.com/angular-ui/bootstrap) project for use in the [Foundation](http://foundation.zurb.com/) framework.
 
+## PIXNET 自行修改部分
+- modal/window.html 的 <div> tagName 修改為 <dialog> (0.6.0-pixnet)
+
 ## Demo
 
 Do you want to see this in action? Visit http://pineconellc.github.io/angular-foundation/

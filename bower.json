@@ -4,6 +4,7 @@
   "authors": [
     "Pinecone, LLC"
   ],
+  "version": "0.6.0-pixnet",
   "license": "MIT",
   "private": true,
   "ignore": [
